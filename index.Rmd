@@ -1,6 +1,6 @@
 ---
-title: "elquesea"
-author: "yo"
+title: "tarea 5"
+author: "Garcia-Huidobro Perez Songer"
 date: "09-11-2018"
 output: html_document
 ---
