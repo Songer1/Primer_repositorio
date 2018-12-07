@@ -1,9 +1,11 @@
 ---
 title: "tarea 5"
 author: "Garcia-Huidobro Perez Songer"
-date: "09-11-2018"
+date: "07-12-2018"
 output: html_document
 ---
+
+
 
 ```{r Pregunta 3, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -176,7 +178,7 @@ grid.arrange(g11, g21, g31, g41, nrow=2, ncol=2)
 
 ```
 
-#**PREGUNTA 3**
+**PREGUNTA 3**
 
 **A)**
 
@@ -193,11 +195,11 @@ apply(betas_df,2,var)
 summary(model)
 ```
 
-#En este caso, podemos presenciar que se mantiene el mismo patrón respecto a que cuando aumenta el tamaño de la muestra, pero aqui el sesgo es el menor posible hasta el tamaño 100, luego va aumentando el sesgo, esto se presencia mucho mejor en los gráficos, ya que en el panel de n=100 el estimador se acerca mucho al parametro poblacional.
+*En este caso, podemos presenciar que se mantiene el mismo patrón respecto a que cuando aumenta el tamaño de la muestra, pero aqui el sesgo es el menor posible hasta el tamaño 100, luego va aumentando el sesgo, esto se presencia mucho mejor en los gráficos, ya que en el panel de n=100 el estimador se acerca mucho al parametro poblacional.*
 
 
 
-##B)
+**B)**
 
 
 
@@ -255,7 +257,7 @@ grid.arrange(g11, g21, g31, g41, nrow=2, ncol=2)
 
 ```
 
-##C)
+**C)**
 
 ```{r Pregunta 3c, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -483,5 +485,4 @@ grid.arrange(g11, g21, g31, g41, nrow=2, ncol=2)
 ```
 
 
-
-#En este caso, podemos presenciar que se mantiene el mismo patrón respecto a que cuando aumenta el tamaño de la muestra, pero aqui el sesgo es el menor posible hasta el tamaño 100, luego va aumentando el sesgo, esto se presencia mucho mejor en los gráficos, ya que en el panel de n=100 el estimador se acerca mucho al parametro poblacional.
+*En este caso, podemos presenciar que se mantiene el mismo patrón respecto a que cuando aumenta el tamaño de la muestra, pero aqui el sesgo es el menor posible hasta el tamaño 100, luego va aumentando el sesgo, esto se presencia mucho mejor en los gráficos, ya que en el panel de n=100 el estimador se acerca mucho al parametro poblacional.*
