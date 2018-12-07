@@ -174,6 +174,91 @@ g41 <- ggplot(betas_df) +
 
 grid.arrange(g11, g21, g31, g41, nrow=2, ncol=2)
 
+```
+
+#**PREGUNTA 3**
+
+**A)**
+
+
+```{r Esperanza}
+apply(betas_df,2,mean)
+```
+
+```{r Varianza}
+apply(betas_df,2,var)
+```
+
+```{r Estimación}
+summary(model)
+```
+
+#En este caso, podemos presenciar que se mantiene el mismo patrón respecto a que cuando aumenta el tamaño de la muestra, pero aqui el sesgo es el menor posible hasta el tamaño 100, luego va aumentando el sesgo, esto se presencia mucho mejor en los gráficos, ya que en el panel de n=100 el estimador se acerca mucho al parametro poblacional.
+
+
+
+##B)
+
+
+
+```{r Distribución de B1, echo=FALSE}
+
+g11 <- ggplot(betas_df) + 
+  
+  geom_histogram(aes(betas_df[,5], y=..density..), col="black", bins = 30) +
+  
+  stat_function(fun=dnorm, args=list(mean=mean(betas_df[,5]), sd=sd(betas_df[,5])), 
+                
+                geom="line", colour="red", size=1) +
+  
+  ylab("Densidad") +   ggtitle("n=50") + xlab(expression(hat(beta)[1])) +
+  
+  theme_bw()
+
+g21 <- ggplot(betas_df) + 
+  
+  geom_histogram(aes(betas_df[,6], y=..density..), col="black", bins = 30) +
+  
+  stat_function(fun=dnorm, args=list(mean=mean(betas_df[,6]), sd=sd(betas_df[,6])), 
+                
+                geom="line", colour="red", size=1) +
+  
+  ylab("Densidad") +   ggtitle("n=100") + xlab(expression(hat(beta)[1])) +
+  
+  theme_bw()
+
+g31 <- ggplot(betas_df) + 
+  
+  geom_histogram(aes(betas_df[,7], y=..density..), col="black", bins = 30) +
+  
+  stat_function(fun=dnorm, args=list(mean=mean(betas_df[,7]), sd=sd(betas_df[,7])), 
+                
+                geom="line", colour="red", size=1) +
+  
+  ylab("Densidad") +   ggtitle("n=500") + xlab(expression(hat(beta)[1])) +
+  
+  theme_bw()
+
+g41 <- ggplot(betas_df) + 
+  
+  geom_histogram(aes(betas_df[,8], y=..density..), col="black", bins = 30) +
+  
+  stat_function(fun=dnorm, args=list(mean=mean(betas_df[,8]), sd=sd(betas_df[,8])), 
+                
+                geom="line", colour="red", size=1) +
+  
+  ylab("Densidad") +   ggtitle("n=1000") + xlab(expression(hat(beta)[1])) +
+  
+  theme_bw()
+
+grid.arrange(g11, g21, g31, g41, nrow=2, ncol=2)
+
+```
+
+##C)
+
+```{r Pregunta 3c, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 #3.c
 
 set.seed(123)
@@ -329,45 +414,74 @@ g41 <- ggplot(betas_df) +
   theme_bw()
 
 grid.arrange(g11, g21, g31, g41, nrow=2, ncol=2)
+
 ```
 
-**PREGUNTA 3**
-
-**A)**
-
-
-```{r Esperanza}
+```{r Esperanzac}
 apply(betas_df,2,mean)
 ```
 
-```{r Varianza}
+```{r Varianzac}
 apply(betas_df,2,var)
 ```
 
-```{r Estimación}
+```{r Estimaciónc}
 summary(model)
 ```
 
-#En este caso, podemos presenciar que se mantiene el mismo patrón respecto a que cuando aumenta el tamaño de la muestra, pero aqui el sesgo es el menor posible hasta el tamaño 100, luego va aumentando el sesgo, esto se presencia mucho mejor en los gráficos, ya que en el panel de n=100 el estimador se acerca mucho al parametro poblacional.
-
-
-
-##B)
-
-
-
-```{r Distribución de B1, echo=FALSE}
-g10 <- ggplot(betas_df) + 
+```{r Distribución de B1c, echo=FALSE}
+g11 <- ggplot(betas_df) + 
   
-  geom_histogram(aes(betas_df[,1], y=..density..), col="black", bins = 30) +
+  geom_histogram(aes(betas_df[,5], y=..density..), col="black", bins = 30) +
   
-  stat_function(fun=dnorm, args=list(mean=mean(betas_df[,1]), sd=sd(betas_df[,1])), 
+  stat_function(fun=dnorm, args=list(mean=mean(betas_df[,5]), sd=sd(betas_df[,5])), 
                 
                 geom="line", colour="red", size=1) +
   
-  ylab("Densidad") +   ggtitle("n=50") + xlab(expression(hat(beta)[0])) +
+  ylab("Densidad") +   ggtitle("n=50") + xlab(expression(hat(beta)[1])) +
   
   theme_bw()
+
+g21 <- ggplot(betas_df) + 
+  
+  geom_histogram(aes(betas_df[,6], y=..density..), col="black", bins = 30) +
+  
+  stat_function(fun=dnorm, args=list(mean=mean(betas_df[,6]), sd=sd(betas_df[,6])), 
+                
+                geom="line", colour="red", size=1) +
+  
+  ylab("Densidad") +   ggtitle("n=100") + xlab(expression(hat(beta)[1])) +
+  
+  theme_bw()
+
+g31 <- ggplot(betas_df) + 
+  
+  geom_histogram(aes(betas_df[,7], y=..density..), col="black", bins = 30) +
+  
+  stat_function(fun=dnorm, args=list(mean=mean(betas_df[,7]), sd=sd(betas_df[,7])), 
+                
+                geom="line", colour="red", size=1) +
+  
+  ylab("Densidad") +   ggtitle("n=500") + xlab(expression(hat(beta)[1])) +
+  
+  theme_bw()
+
+g41 <- ggplot(betas_df) + 
+  
+  geom_histogram(aes(betas_df[,8], y=..density..), col="black", bins = 30) +
+  
+  stat_function(fun=dnorm, args=list(mean=mean(betas_df[,8]), sd=sd(betas_df[,8])), 
+                
+                geom="line", colour="red", size=1) +
+  
+  ylab("Densidad") +   ggtitle("n=1000") + xlab(expression(hat(beta)[1])) +
+  
+  theme_bw()
+
+grid.arrange(g11, g21, g31, g41, nrow=2, ncol=2)
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+#En este caso, podemos presenciar que se mantiene el mismo patrón respecto a que cuando aumenta el tamaño de la muestra, pero aqui el sesgo es el menor posible hasta el tamaño 100, luego va aumentando el sesgo, esto se presencia mucho mejor en los gráficos, ya que en el panel de n=100 el estimador se acerca mucho al parametro poblacional.
